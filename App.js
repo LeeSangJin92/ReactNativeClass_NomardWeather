@@ -3,6 +3,8 @@ import { StyleSheet, Text, View } from 'react-native';
 
 export default function App() {
   return (
+
+    // ✏️ 스타일 관련 코드
     <View style={styles.container}>
       <Text style={styles.text}>스타일 지정하는 방법</Text>
       

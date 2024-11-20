@@ -1,0 +1,11 @@
+🗓️ 2024. 11. 20. 수요일
+📘 Layout System
+
+✏️ React Native에서 활용되는 View의 display는 기본적으로 Flex로 설정되어 있음.
+✏️ 또한 Flex-direction은 React에서는 "Row"로 되어 있지만 Native에서는 "Column"으로 설정되어 있음⭐⭐
+
+✏️ 핸드폰 화면 밖으로 View가 overflow하여도 앱에선 스크롤 기능이 없기에 스크롤 할 수 없다.
+
+✏️ React Native에서는 View의 크기를 설정 시 직접적으로 width 값과 height 값을 지정하지 않는 편을 선호⭐
+🔍 웹과 다르게 앱은 반응형을 기본으로 생각하고 개발하기에 Layout을 직접적으로 설정하는 것은 피하자!⭐
+⭐ width / height 속성보다 flex 속성을 활용하여 Layout을 코딩하는 것을 추천!
