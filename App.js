@@ -17,6 +17,11 @@ export default function App() {
 
       {/* 3) 2번째 방법과 동일하지만 StyleSheet.create를 활용한 방법 */}
       <Text style={styles.text}>- 📘 세번째 -</Text>
+
+      {/* 
+          🔍 아래 StatusBar는 핸드폰에서 상단에 표시되는 상태바를 
+          의미하며 현재 핸드폰에 상태 데이터를 주고 받을때 활용됨. 
+      */}
       <StatusBar style="auto" />
     </View>
   );
