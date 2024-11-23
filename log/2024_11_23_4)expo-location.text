@@ -1,0 +1,30 @@
+🗓️ 2024. 11. 23. 토요일
+📘 expo-Location 
+
+✏️ EXPO에서 제공하는 GPS 및 지역 관련 데이터를 활용하는 API
+🔗 EXPO 부록 : https://docs.expo.dev/versions/latest/sdk/location/
+
+⭐ expo-location을 활용하기 위해서는 해당 프로젝트에 우선 expo-location을 설치해야함
+🖥️ 터미널 설치 코드 : npm i expo-location
+
+✏️ 설치가 완료되면 아래 코드를 사용하려는 js 파일 상단에 호출
+🖥️ expo-location 호출 코드 : import * as Location from 'expo-location';
+
+✏️ Location을 호출되었다면 현재 사용 중인 기기에 위치 기반 권한을 요청해야 expo-location을 활용 할 수 있음
+🖥️ ----------- 위치 기반 권한 요청 코드 ---------------
+const ask = async () => {
+    const data = await Location.requestForegroundPermissionsAsync();
+}
+
+useEffect(()=>{
+    ask();
+},[])
+-------------------------------------------------------
+
+🔍 리턴 받은 data는 Promise타입으로 <LocationPermissionResponse> 객체를 받음
+🔗 LocationPermissionResponse 부록 : https://docs.expo.dev/versions/latest/sdk/location/#locationpermissionresponse
+⚠️ LocationPermissionResponse은 현재 사용 중인 기기가 안드로이드 / IOS 따라 받는 옵션이 다름
+    🤖 android : PermissionDetailsLocationAndroid
+    🔗 https://docs.expo.dev/versions/latest/sdk/location/#permissiondetailslocationandroid
+    🍎 ios : PermissionDetailsLocationIOS
+    🔗 https://docs.expo.dev/versions/latest/sdk/location/#permissiondetailslocationios

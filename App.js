@@ -1,14 +1,38 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Dimensions, ScrollView, StyleSheet, Text, View } from 'react-native';
-
+import * as Location from 'expo-location';
 const {width:SCREEN_WIDTH} = Dimensions.get("window");
 
 export default function App() {
+  const [city, setCity] = useState("loading");
+  const [location, setLocation] = useState();
+  const [ok, setOk] = useState(true);
+
+  const ask = async () => {
+
+    // 사용중인 폰 또는 기기에서 위치 기반 권한 허용 요청
+    const data = await Location.requestForegroundPermissionsAsync();
+    console.log(data);
+    const granted = data.granted;
+    // granted는 현재 사용 중인 기기에서 위치 기반 권한이 허용되었는지 파악 (false : 허가하지 않음 / true : 허가)
+    if(!granted){
+      setOk(false);
+    }
+
+    const {coords:{latitude, longitude}} = await Location.getCurrentPositionAsync({accuracy:5});
+    console.log(latitude, longitude);
+    const location = await Location.reverseGeocodeAsync({latitude, longitude}, {useGoogleMaps:false});
+    setCity(location[0].city||location[0].region);
+  }
+
+  useEffect(()=>{
+    ask();
+  },[])
 
   return (
     <View style={styles.continue}>
       <View style={styles.city}>
-        <Text style={styles.cityName}>Seoul</Text>
+        <Text style={styles.cityName}>{city}</Text>
       </View>
       <ScrollView 
       horizontal 
