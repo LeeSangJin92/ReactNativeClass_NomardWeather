@@ -1,0 +1,32 @@
+🗓️ 2024. 11. 23. 토요일
+📘 ScrollView Components
+
+✏️ React Native에서는 큰 컨테이너 안에 있는 View 또는 Component가 Layout 밖으로 벗어나도
+    브라우저가 아니므로 스크롤 기능이 자동으로 적용되지 않음.⚠️
+✏️ 따라서 앱에 스크롤 기능을 추가하기 위해서는 ScrollView라는 컴포넌트를 활용해야함!⭐
+🔗 리액트네이티브 부록 : https://reactnative.dev/docs/scrollview
+
+✏️ ScrollView 활용 시 View처럼 태그로 생성하면 활용 가능
+✏️ ScrollView prop 중 horizontal을 추가 할 경우 해당 스크롤 기능은 좌우로 이용됨.
+
+📘 contentContainerStyle Prop
+⚠️ ScrollView의 스타일은 기존 View 태그에서 활용하던 style Prop으로 적용이 불가능!
+⭐ 따라서 ScrollView의 스타일을 적용하려면 style이 아닌 contentContainerStyle로 Prop을 지정⭐
+🔗 ScrollView 부록 : https://reactnative.dev/docs/scrollview#contentcontainerstyle
+
+✏️ ScrollView의 스타일 코드 중에서 flex는 적용하지 않는 것을 추천!⭐
+⚠️ ScrollView에 flex를 적용하게되면 ScrollView 안에 있는 자식 태그들이 Layout 밖으로 나가지를 못하여
+   스크롤 기능을 활용 할 수 없는 오류가 생김!
+⭐ 따라서 ScrollView의 스타일에는 flex를 적용하지 않는다.
+
+📘 pagingEnabled Prop
+✏️ 스크롤 기능이 자유롭지 않고 화면 비중을 많이 차지하는 자식 태그가 가운데오도록 설정됨
+🔗 ScrollView 부록 : https://reactnative.dev/docs/scrollview#pagingenabled
+
+📘 showsHorizontalScrollIndicator Prop & showsVerticalScrollIndicator Prop
+✏️ 스크롤 기능을 사용 중 화면 바닥 또는 측면에 스크롤 표시바를 숨기는 Prop
+⚠️ 위 Prop를 지정하지 않으면 기본값으로 true로 적용되어 있기 때문에 스크롤 표시바가 출력됨.
+✏️ 스크롤 표시바를 숨기기 위해선 showsHorizontalScrollIndicator={false}로 Prop 지정
+🔍 Horizontal : 좌우 스크롤 / Vertical : 위아래 스크롤
+🔗 ScrollView 부록 : https://reactnative.dev/docs/scrollview#showshorizontalscrollindicator
+🔗 ScrollView 부록 : https://reactnative.dev/docs/scrollview#showsverticalscrollindicator
